@@ -1,0 +1,100 @@
+---
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Astro description" />
+		<meta name="viewport" content="width=device-width" />
+		<!--<link rel="icon" type="image/svg+xml" href="/favicon.ico" /> -->
+		<link rel="icon"  href="/favicon.ico" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+	</head>
+	<body>
+		<div class="mouse-aura" style="left: 1408px; top: 225px; opacity: 1;"></div>
+
+		<slot />
+	</body>
+</html>
+
+<style>
+	.mouse-aura {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100px;
+		height: 100px;
+		border-radius: 50%;
+		background-color: rgba(188, 6, 30, 0.849);
+		pointer-events: none;
+		z-index: 9999;
+		opacity: 0;
+		filter: blur(55px);
+		transform: translate(-50%, -50%) scale(1.2);
+		transition: opacity 0.3s, transform 0.3s;
+	}
+</style>
+
+<script>
+	let prevTitle = document.title;
+	window.addEventListener('blur', () => {
+		prevTitle = document.title;
+		document.title = '¡Oye, por qué te vas! ¡Vuelve! 🙁';
+	})
+	window.addEventListener('focus', () => {
+		document.title = prevTitle;
+	})
+
+	const mouseAura = document.querySelector('.mouse-aura');
+
+	document.addEventListener('mousemove', (e) => {
+	const x = e.clientX;
+	const y = e.clientY;
+
+	mouseAura.style.left = x + 'px';
+	mouseAura.style.top = y + 'px';
+
+	mouseAura.style.opacity = '1';
+	});
+
+	document.addEventListener('mouseleave', () => {
+	mouseAura.style.opacity = '0';
+	});
+</script>
+<!--
+<style is:global>
+	:root {
+		--accent: 136, 58, 234;
+		--accent-light: 224, 204, 250;
+		--accent-dark: 49, 10, 101;
+		--accent-gradient: linear-gradient(
+			45deg,
+			rgb(var(--accent)),
+			rgb(var(--accent-light)) 30%,
+			white 60%
+		);
+	}
+	html {
+		font-family: system-ui, sans-serif;
+		background-size: 224px;
+	}
+	code {
+		font-family:
+			Menlo,
+			Monaco,
+			Lucida Console,
+			Liberation Mono,
+			DejaVu Sans Mono,
+			Bitstream Vera Sans Mono,
+			Courier New,
+			monospace;
+	}
+</style>
+ -->
