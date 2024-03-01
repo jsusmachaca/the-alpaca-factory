@@ -18,13 +18,27 @@ const { title } = Astro.props;
 		<title>{title}</title>
 	</head>
 	<body>
-		<div class="mouse-aura" style="left: 1408px; top: 225px; opacity: 1;"></div>
+		<span class="mouse-aura" style="left: 1408px; top: 225px; opacity: 1;"></span>
 
 		<slot />
 	</body>
 </html>
 
 <style>
+	* {
+	box-sizing: border-box;
+	}
+
+	html {
+	font-family: "Open Sans", sans-serif;
+	scrollbar-color: rgb(194 65 12) white;
+	scrollbar-width: none;
+	}
+	
+	body {
+	margin: 0;
+	}
+
 	.mouse-aura {
 		position: fixed;
 		top: 0;
@@ -68,6 +82,7 @@ const { title } = Astro.props;
 	mouseAura.style.opacity = '0';
 	});
 </script>
+
 <!--
 <style is:global>
 	:root {
