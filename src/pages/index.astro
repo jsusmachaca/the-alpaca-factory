@@ -5,13 +5,14 @@ import Gallery from '../components/gallery/Galery.astro'
 import Feature from '../components/Feature.astro'
 import Footer from '../components/Footer.astro'
 import FormButton from '../components/forms/FormButton.astro'
+import SideBar from '../components/SideBar.astro'
 ---
 
 
 
-<Layout title="The Alpaca Factory.">
+<Layout title="The Alpaca Factory." >
 	<Header />
-	<main>
+	<main class=" overflow-x-hidden bg-gradient-to-b from-gray-200 via-white to-white">
 		<Feature />
 		<Gallery />
 		<FormButton />

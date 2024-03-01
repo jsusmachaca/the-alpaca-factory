@@ -26,13 +26,13 @@ const currentImage = images[randomIndex]
     </div>
     <div class="relative z-8 flex flex-col justify-center items-center h-full text-center">
       <div class="lg:w-2/3 w-full animate-fade-in-down ">
-        <h1 class="md:text-6xl text-3xl mb-2 font-bold text-white tracking-tight leading-tight">
+        <h1 class="banner-title md:text-6xl text-3xl mb-2 font-bold text-white tracking-tight leading-tight">
           THE ALPACA FACTORY
         </h1>
-        <h1 class="md:text-6xl text-3xl mb-4 font-bold text-white tracking-tight leading-tight">
+        <h1 class="banner-title md:text-6xl text-3xl mb-4 font-bold text-white tracking-tight leading-tight">
         Knitting & <span class="border-b-4 border-green-400 -mb-20"></span>Design services for private labels.
         </h1>
-        <p class="mt-8 mb-16 md:leading-relaxed leading-normal text-white tracking-tight text-xl">
+        <p class="banner-text mt-8 mb-16 md:leading-relaxed leading-normal text-white tracking-tight text-3xl">
           Evolved at High Altitude in the Andes of South-America, the Alpaca strives in very challenging environments.
         </p>
         <div class=" flex items-center justify-center">
@@ -95,3 +95,22 @@ const currentImage = images[randomIndex]
       })
     })
 </script>
+
+<style>
+  @font-face {
+    font-family: 'Roboto';
+    src: url('../assets/fonts/Roboto-LightItalic.ttf') format('truetype');
+  }
+  @font-face {
+    font-family: 'Roboto';
+    src: url('../assets/fonts/Roboto-BlackItalic.ttf') format('truetype');
+    font-weight: bold;
+  }
+  .banner-title {
+    font-family: 'Roboto';
+    font-weight: bold;
+  }
+  .banner-text {
+    font-family: 'Roboto';
+  }
+</style>
