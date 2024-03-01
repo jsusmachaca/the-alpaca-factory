@@ -53,7 +53,7 @@ const socksImages = [
 
 
 <section class="gallery flex flex-col">
-  <div class="show gal-item order-1 md:ml-0 md:mr-96">
+  <div class="gal-item show order-1 md:ml-0 md:mr-96">
     <GalleryItem 
     title='COMFORTABLE SOCKS'
     description='Step strong with our customizable socks! Style and comfort in every step!'
@@ -61,7 +61,7 @@ const socksImages = [
     />
   </div>
 
-  <div class="order-2 md:ml-96 md:mr-0">
+  <div class="gal-item order-2 md:ml-96 md:mr-0">
     <GalleryItem 
     title='SPORT SOCKS'
     description='Step strong with our customizable socks! Style and comfort in every step!'
@@ -69,26 +69,14 @@ const socksImages = [
     />
   </div>
 
-  <div class="order-3 md:ml-0 md:mr-96">
+  <div class="gal-item order-3 md:ml-0 md:mr-96">
     <GalleryItem 
     title='HOME & BED SOCKS'
     description='Step strong with our customizable socks! Style and comfort in every step!'
     images={bedImages}
     />
   </div>
-
-  {
-/*
-<div class="flex-none mr-4">
-  <GaleryItem 
-    title='KNIT GLOVES'
-    description='Step strong with our customizable socks! Style and comfort in every step!'
-    images={knitGlovesImages}
-    />
-</div>
-*/
-  }
-  <div class="order-4 md:ml-96 md:mr-0">
+  <div class="gal-item order-4 md:ml-96 md:mr-0">
     <GalleryItem 
     title='LEATHER GLOVES'
     description='Elegance in every movement. Discover our premium leather gloves for a touch of style on any occasion.'
@@ -96,14 +84,14 @@ const socksImages = [
     />
   </div>
 
-  <div class="order-5 md:ml-0 md:mr-96">
+  <div class="gal-item order-5 md:ml-0 md:mr-96">
     <GalleryItem 
       title='HATS & BEANIES'
       description='Step strong with our customizable socks! Style and comfort in every step!'
       images={hatsImages}
       />
   </div>
-  <div class="order-6 md:ml-96 md:mr-0">
+  <div class="gal-item order-6 md:ml-96 md:mr-0">
     <GalleryItem 
       title='ACCESSORIES'
       description='Wrap yourself in warmth and style with our curated collection of hats and scarves. Embrace the season with flair!.'
@@ -111,7 +99,7 @@ const socksImages = [
     />
   </div>
 
-  <div class="order-7 md:ml-0 md:mr-96">
+  <div class="gal-item order-7 md:ml-0 md:mr-96">
     <GalleryItem 
       title='THERMAL UNDERWEAR'
       description='Warmth without sacrificing style. Discover our thermal underwear for total comfort in any weather.'
@@ -121,44 +109,43 @@ const socksImages = [
 </section>
 
 <style>
-  .gallery {
+  .gal-item {
     transform: translate(400%);
-    transition: transform 0.4s ease;
+    transition: transform 0.7s ease;
   }
 
-  .gallery:nth-of-type(even) {
+  .gal-item:nth-of-type(even) {
     transform: translateX(-400%);
   }
 
 
-  .gallery.show {
+  .gal-item.show {
     transform: translateX(0);
   }
 </style>
 
 <script>
-  const gallery = document.querySelectorAll('.gallery')
-  console.log(gallery)
-  
-  gallery.forEach((gal) => {
-    console.log(gal.children)
+  document.addEventListener('DOMContentLoaded', () => {
+
+    const gallery = document.querySelectorAll('.gal-item')
+    
+    window.addEventListener('scroll', checkItems)
+
+    function checkItems() {
+      const triggerButton = window.innerHeight / 5 * 4
+      
+      gallery.forEach((galItem) => {
+        const iTop = galItem.getBoundingClientRect().top
+        
+        if (iTop < triggerButton) {
+          galItem.classList.add('show')
+        }
+        else {
+          galItem.classList.remove('show')
+        }
+      })
+    }
+    
+    
   })
-
-  const checkItems = () => {
-    const triggerButton = window.innerHeight / 5 * 4
-
-    gallery.forEach(galItem => {
-      const iTop = galItem.getBoundingClientRect().top
-
-      if (iTop < triggerButton) {
-        galItem.classList.add('show')
-      }
-      else {
-        galItem.classList.remove('show')
-      }
-    })
-  }
-  window.addEventListener('scroll', checkItems)
-
-
-</script>
+  </script>
