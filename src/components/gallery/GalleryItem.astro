@@ -1,34 +1,38 @@
 ---
+interface Props {
+  title: string
+  description: string
+  images: string[]
+}
 const { title, description, images} = Astro.props
 ---
 
 <article class=" w-full h-full">
-    <div class="container mx-auto lg:px-32 lg:pt-24 border-b-2 mb-10 pb-14">
+  <div class="container mx-auto lg:px-32 lg:pt-24 border-b-2 mb-10 pb-14">
     <div class="text-center pb-10">
       <h1 class="font-bold text-5xl mb-4 text-left">{title}</h1>
       <h1 class="text-3xl text-left text-gray-400">{description}</h1>
     </div>
     <div class="grid grid-cols-2 gap-4 sm:grid-cols-3 md:gap-6 xl:gap-8">     
-          <div
-              class="group relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-80">
-              <img src={images[0]} loading="lazy" alt="Referential image" class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" />
-          </div>
-     
-          <div
-              class="group relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:col-span-2 md:h-80">
-              <img src={images[1]} loading="lazy" alt="Referential image" class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" />
-          </div>
-   
-          <div
-              class="group relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:col-span-2 md:h-80">
-              <img src={images[2]} loading="lazy" alt="Referential image" class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" />
-          </div>
-   
-          <div
-              class="group relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-80">
-              <img src={images[3]} loading="lazy" alt="Referential image" class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" />
-          </div>
-   
+      <div
+        class="group relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-80">
+        <img src={images[0]} loading="lazy" alt="Referential image" class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" />
+      </div>
+  
+      <div
+        class="group relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:col-span-2 md:h-80">
+        <img src={images[1]} loading="lazy" alt="Referential image" class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" />
+      </div>
+
+      <div
+        class="group relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:col-span-2 md:h-80">
+        <img src={images[2]} loading="lazy" alt="Referential image" class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" />
+      </div>
+
+      <div
+        class="group relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-80">
+        <img src={images[3]} loading="lazy" alt="Referential image" class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" />
       </div>
     </div>
-  </article>
+  </div>
+</article>
