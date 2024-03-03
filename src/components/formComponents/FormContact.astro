@@ -8,7 +8,8 @@ if (Astro.request.method === "POST") {
     const message = data.get("message");
     const phone = data.get("phone")
     
-    fetch("http:localhost:4321/api/mailer.json", {
+    // console.log(`${Astro.url.origin}/api/mailer.json`)
+    fetch(`${Astro.url.origin}/api/mailer.json`, {
       method: "POST",
       headers: {
         'Content-Type': 'application/json'
@@ -29,8 +30,6 @@ if (Astro.request.method === "POST") {
   }
 }
 ---
-
-
 
 <div class=" mb-48" id="contact">
   <div class="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
@@ -142,8 +141,3 @@ if (Astro.request.method === "POST") {
     </div>
   </div>
 </div>
-
-<script>
-  const $btnSubmit: HTMLButtonElement | null = document.getElementById('btn-submit') as HTMLButtonElement
-  
-</script>
