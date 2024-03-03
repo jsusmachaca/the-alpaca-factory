@@ -1,6 +1,4 @@
 ---
-
-
 if (Astro.request.method === "POST") {
   try {
     const data = await Astro.request.formData();
@@ -8,6 +6,8 @@ if (Astro.request.method === "POST") {
     const name = data.get("name");
     const email = data.get("email");
     const message = data.get("message");
+    const phone = data.get("phone")
+    
     fetch("http:localhost:4321/api/mailer.json", {
       method: "POST",
       headers: {
@@ -16,13 +16,12 @@ if (Astro.request.method === "POST") {
       body: JSON.stringify({
         name,
         email,
+        phone,
         message
       })
     })
     .then(res => res.json())
     .then(message => console.log(message))
-    
-    // Do something with the data
   } catch (error) {
     if (error instanceof Error) {
       console.error(error.message);
@@ -86,7 +85,6 @@ if (Astro.request.method === "POST") {
                 <h3 class="mb-2 text-lg font-medium leading-6 text-gray-900 dark:text-black">Contact
                 </h3>
                 <p class="text-gray-600 dark:text-slate-400">Mobile: +1 (123) 456-7890</p>
-                <p class="text-gray-600 dark:text-slate-400">Mail: tailnext@gmail.com</p>
               </div>
             </li>
             <li class="flex">
@@ -100,9 +98,8 @@ if (Astro.request.method === "POST") {
               </div>
               <div class="ml-4 mb-4">
                 <h3 class="mb-2 text-lg font-medium leading-6 text-gray-900 dark:text-black">Working
-                    hours</h3>
+                  hours</h3>
                 <p class="text-gray-600 dark:text-slate-400">Monday - Friday: 08:00 - 17:00</p>
-                <p class="text-gray-600 dark:text-slate-400">Saturday &amp; Sunday: 08:00 - 12:00</p>
               </div>
             </li>
           </ul>
@@ -115,19 +112,24 @@ if (Astro.request.method === "POST") {
                   <div class="mx-0 mb-1 sm:mb-4">
                     <div class="mx-0 mb-1 sm:mb-4">
                       <label for="name" class="pb-1 text-xs uppercase tracking-wider"></label>
-                      <input type="text" id="name" autocomplete="given-name" placeholder="Your name" 
-                        class="mb-2 w-full rounded-md border border-gray-400 py-2 pl-2 pr-4 shadow-md dark:text-gray-300 sm:mb-0" name="name" required>
+                      <input type="text" id="name" autocomplete="given-name" placeholder="Your full name" 
+                        class="mb-2 w-full rounded-md border border-gray-400 py-2 pl-2 pr-4 shadow-md dark:text-gray-600 sm:mb-0" name="name" required>
                     </div>
                     <div class="mx-0 mb-1 sm:mb-4">
                       <label for="email" class="pb-1 text-xs uppercase tracking-wider"></label>
                       <input type="email" id="email" autocomplete="email" placeholder="Your email address" 
-                        class="mb-2 w-full rounded-md border border-gray-400 py-2 pl-2 pr-4 shadow-md dark:text-gray-300 sm:mb-0" name="email" required>
+                        class="mb-2 w-full rounded-md border border-gray-400 py-2 pl-2 pr-4 shadow-md dark:text-gray-600 sm:mb-0" name="email" required>
+                    </div>
+                    <div class="mx-0 mb-1 sm:mb-4">
+                      <label for="phone" class="pb-1 text-xs uppercase tracking-wider"></label>
+                      <input type="number" id="phone" autocomplete="phone" placeholder="Your phone number" 
+                        class="mb-2 w-full rounded-md border border-gray-400 py-2 pl-2 pr-4 shadow-md dark:text-gray-600 sm:mb-0" name="phone" required>
                     </div>
                   </div>
                   <div class="mx-0 mb-1 sm:mb-4">
                     <label for="textarea" class="pb-1 text-xs uppercase tracking-wider"></label>
                     <textarea id="textarea" name="message" cols="30" rows="5" placeholder="Write your message..." 
-                      class="mb-2 w-full rounded-md border border-gray-400 py-2 pl-2 pr-4 shadow-md dark:text-gray-300 sm:mb-0" required></textarea>
+                      class="mb-2 w-full rounded-md border border-gray-400 py-2 pl-2 pr-4 shadow-md dark:text-gray-600 sm:mb-0" required></textarea>
                   </div>
                 </div>
                 <div class="text-center">
