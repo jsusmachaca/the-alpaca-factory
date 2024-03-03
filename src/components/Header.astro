@@ -1,25 +1,12 @@
 ---
 
-import imageBanner from '../assets/images/alpaca1.webp'
-import imageBanner1 from '../assets/images/header_alpaca.webp'
-import imageBanner2 from '../assets/images/image-001.webp'
-
-
-const images = [imageBanner.src, imageBanner1.src, imageBanner2.src]
-function getRandomIndex() {
-    return Math.floor(Math.random() * images.length);
-}
-
-const randomIndex = getRandomIndex();
-const currentImage = images[randomIndex]
-
 ---
 
 
 <header class="relative bg-gradient-to-r from-gray-950 to-gray-800 h-screen text-white overflow-hidden mb-10">
     <div class="absolute inset-0">
-        <img src={currentImage} id="banner-image" alt="Background Image" 
-          class="object-cover object-center w-full h-full transition-opacity duration-1000 ease-in-out" 
+        <img id="banner-img" src="/banner/images/alpaca1.webp" id="banner-image" alt="Background Image" 
+          class="object-cover object-center w-full h-full" 
           style={{ opacity: 1 }}
         />
     <div class="absolute inset-0 bg-black opacity-65"></div>
@@ -46,12 +33,6 @@ const currentImage = images[randomIndex]
             </span>
           </a>
         </div>
-      {/*
-        <a class="uppercase rounded-sm bg-red-400 font-bold text-white px-8 py-4 mx-auto mr-4 hidden md:inline"
-          href="#contact-form">Contact Me</a>
-        <a class="uppercase rounded-sm bg-green-400 font-bold text-white px-8 py-4 mx-auto hidden md:inline"
-          href="#about-me">About Me</a>
-      */}
       </div>
       <span id="down-arrow" class="absolute block mx-auto text-xl md:mt-96 bottom-0 left-1/2 -ml-10 mt-80">
         <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" class="animate-bounce">
@@ -64,23 +45,34 @@ const currentImage = images[randomIndex]
   </header>
 
 <script>
-    const arrow = document.getElementById('down-arrow')
-    arrow.addEventListener('click', () => {
-      window.scrollTo({
-        top: window.innerHeight,
-        behavior: 'smooth'
-      })
+  const $img: HTMLImageElement | null = document.getElementById('banner-img') as HTMLImageElement;
+  const images: string[] = ['/banner/images/alpaca1.webp', '/banner/images/header_alpaca.webp', '/banner/images/image-001.webp']
+
+  const arrow: HTMLOrSVGImageElement | null = document.getElementById('down-arrow') as HTMLOrSVGImageElement
+  arrow.addEventListener('click', () => {
+    window.scrollTo({
+      top: window.innerHeight,
+      behavior: 'smooth'
     })
+  })
+
+
+  
+  let currentIndex = 0;
+  setInterval(() => {
+    currentIndex = (currentIndex + 1) % images.length
+    $img.src = images[currentIndex]
+  }, 20000)
 </script>
 
 <style>
   @font-face {
     font-family: 'Roboto';
-    src: url('../assets/fonts/Roboto-LightItalic.ttf') format('truetype');
+    src: url('/fonts/Roboto-LightItalic.ttf') format('truetype');
   }
   @font-face {
     font-family: 'Roboto';
-    src: url('../assets/fonts/Roboto-BlackItalic.ttf') format('truetype');
+    src: url('/fonts/Roboto-BlackItalic.ttf') format('truetype');
     font-weight: bold;
   }
   .banner-title {
@@ -90,4 +82,13 @@ const currentImage = images[randomIndex]
   .banner-text {
     font-family: 'Roboto';
   }
+
+  #banner-img {
+    animation: fade-in-out 20s infinite;
+  }
+  @keyframes fade-in-out {
+  0% { opacity: 0; }
+  50% { opacity: 1; }
+  100% { opacity: 0; }
+}
 </style>

@@ -1,12 +1,12 @@
 ---
 import Layout from '../layouts/Layout.astro'
-import FormContact from '../components/forms/FormContact.astro'
+import Form from '../components/Form.astro'
+
+export const prerender = false
 ---
 
 <Layout title="Alpaca Factory Contact.">
   <main class="">
-    <div>
-      <FormContact />
-    </div>
+      <Form />
   </main>
 </Layout>
