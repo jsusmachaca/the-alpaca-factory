@@ -1,17 +1,18 @@
-import { APIRoute } from "astro"
 import sgMail from "@sendgrid/mail"
 
 
 const API_KEY = import.meta.env.API_KEY
 const addressee = import.meta.env.ADDRESSEE
 
-export async function POST({ request }) {
+export async function POST({ redirect, request }) {
   sgMail.setApiKey(API_KEY)
-  const data = await request.json()
-  const email = data.email
-  const name = data.name
-  const message = data.message
-  const phone = data.phone
+
+  const data = await request.formData()
+
+  const name = data.get("name");
+  const email = data.get("email");
+  const message = data.get("message");
+  const phone = data.get("phone")
 
   const msg = {
     to: addressee,
@@ -51,13 +52,12 @@ export async function POST({ request }) {
     `
   }
   sgMail.send(msg)
-  .then(() => {
-    console.log("Mail Send")
-  })
-  .catch(err => {
-    console.error(err)
-  })
-  return new Response (
-    JSON.stringify({ success: true })
-  )
+    .then(res => {
+      console.log("Mail Send")
+    })
+    .catch(err => {
+      console.error(err)
+    })
+
+  return redirect("/sending", 307)
 }
