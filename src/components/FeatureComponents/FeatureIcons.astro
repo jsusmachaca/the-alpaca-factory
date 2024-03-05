@@ -1,0 +1,22 @@
+---
+interface Props {
+    color: string
+    title: string
+    svgBox: string,
+    svgPath: string
+}
+
+const { color, title, svgBox, svgPath } = Astro.props 
+
+---
+
+
+<div class="md:p-8 lg:p-14 flex flex-col shadow-md justify-center items-center">
+    <div class={`w-16 h-16 rounded-full bg-${ color }-200 flex justify-center items-center`}>
+      <svg class=" w-10 h-10" viewBox={svgBox}>
+        <path d={svgPath}/>
+      </svg>
+    </div>
+    <h3 class="mt-12 text-xl font-bold text-gray-900">{ title }</h3>
+    <p class="mt-5 text-base text-gray-600"><slot /></p>
+</div>
