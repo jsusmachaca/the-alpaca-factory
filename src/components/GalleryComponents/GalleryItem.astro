@@ -16,18 +16,18 @@ const { title, description, images, side} = Astro.props
     </div>
     <div class="grid grid-cols-2 gap-4 sm:grid-cols-3 md:gap-6 xl:gap-8">     
       <div
-        class="group relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-80">
-        <img src={images[0]} loading="lazy" alt="Referential image" class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" />
+        class="group relative flex h-48 items-end overflow-hidden rounded-lg bg-white shadow-lg md:h-80">
+        <img src={images[0]} loading="lazy" alt="Referential image" class="absolute inset-0 h-full w-full rounded-lg object-contain transition duration-200 scale-110 group-hover:scale-125" />
       </div>
   
       <div
-        class="group relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:col-span-2 md:h-80">
-        <img src={images[1]} loading="lazy" alt="Referential image" class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" />
+        class="group relative flex h-48 items-end overflow-hidden rounded-lg bg-white shadow-lg md:col-span-2 md:h-80">
+        <img src={images[1]} loading="lazy" alt="Referential image" class="absolute inset-0 h-full w-full rounded-lg object-contain transition duration-200 scale-110 group-hover:scale-125" />
       </div>
 
       <div
-        class="group relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:col-span-2 md:h-80">
-        <img src={images[2]} loading="lazy" alt="Referential image" class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" />        
+        class="group relative flex h-48 items-end overflow-hidden rounded-lg bg-white shadow-lg md:col-span-2 md:h-80">
+        <img src={images[2]} loading="lazy" alt="Referential image" class="absolute inset-0 h-full w-full rounded-lg object-contain transition duration-200 scale-110 group-hover:scale-125" />        
         {
           side === 'right' ?
             <a class="relative ml-4 mb-3 inline-block md:ml-5">
@@ -43,8 +43,8 @@ const { title, description, images, side} = Astro.props
       </div>
 
       <div
-        class="group relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-80">
-        <img src={images[3]} loading="lazy" alt="Referential image" class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" />
+        class="group relative flex h-48 items-end overflow-hidden rounded-lg bg-white shadow-lg md:h-80">
+        <img src={images[3]} loading="lazy" alt="Referential image" class="absolute inset-0 h-full w-full object-contain transition duration-200 scale-110 group-hover:scale-125" />
         {
           side === 'left' ?
             <a class="relative ml-28 mb-3 inline-block md:ml-80">
