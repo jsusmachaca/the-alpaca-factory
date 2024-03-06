@@ -2,52 +2,52 @@
 import GalleryItem from "./GalleryComponents/GalleryItem.astro"
 
 const socksImages = [
-    './cloth/Alpaca/image-015.jpg',
-    './cloth/Alpaca/image-000.jpg',
-    './cloth/Alpaca/image-031.jpg',
-    './cloth/Alpaca/image-036.jpg',
+    '/cloth/Alpaca/image-015.jpg',
+    '/cloth/Alpaca/image-000.jpg',
+    '/cloth/Alpaca/image-031.jpg',
+    '/cloth/Alpaca/image-036.jpg',
   ]
   const sportSocksImages = [
-    './cloth/Alpaca/image-020.jpg',
-    './cloth/Alpaca/image-059.jpg',
-    './cloth/Alpaca/image-054.jpg',
-    './cloth/Alpaca/image-021.jpg',
+    '/cloth/Alpaca/image-020.jpg',
+    '/cloth/Alpaca/image-059.jpg',
+    '/cloth/Alpaca/image-054.jpg',
+    '/cloth/Alpaca/image-021.jpg',
   ]
   const bedImages = [
-    './cloth/Alpaca/image-047.jpg',
-    './cloth/Alpaca/image-063.jpg',
-    './cloth/Alpaca/image-023.jpg',
-    './cloth/Alpaca/image-043.jpg',
+    '/cloth/Alpaca/image-047.jpg',
+    '/cloth/Alpaca/image-063.jpg',
+    '/cloth/Alpaca/image-023.jpg',
+    '/cloth/Alpaca/image-043.jpg',
   ]
   const glovesImages = [
-    './cloth/Alpaca/image-067.jpg',
-    './cloth/Alpaca/image-077.jpg',
-    './cloth/Alpaca/image-072.jpg',
-    './cloth/Alpaca/image-087.jpg',
+    '/cloth/Alpaca/image-067.jpg',
+    '/cloth/Alpaca/image-077.jpg',
+    '/cloth/Alpaca/image-072.jpg',
+    '/cloth/Alpaca/image-087.jpg',
   ]
   const knitGlovesImages = [
-    './cloth/Alpaca/image-099.jpg',
-    './cloth/Alpaca/imgp.jpg',
-    './cloth/Alpaca/imgb.png',
-    './cloth/Alpaca/imgc.jpg',
+    '/cloth/Alpaca/image-099.jpg',
+    '/cloth/Alpaca/imgp.jpg',
+    '/cloth/Alpaca/imgb.png',
+    '/cloth/Alpaca/imgc.jpg',
   ]
   const thermalImages = [
-    './cloth/Alpaca/image-118.jpg',
-    './cloth/Alpaca/image-119.jpg',
-    './cloth/Alpaca/image-115.jpg',
-    './cloth/Alpaca/image-106.png',
+    '/cloth/Alpaca/image-118.jpg',
+    '/cloth/Alpaca/image-119.jpg',
+    '/cloth/Alpaca/image-115.jpg',
+    '/cloth/Alpaca/image-106.png',
   ]
   const hatsImages = [
-    './cloth/Alpaca/image-191.jpg',
-    './cloth/Alpaca/image-156.jpg',
-    './cloth/Alpaca/image-178.jpg',
-    './cloth/Alpaca/image-155.jpg',
+    '/cloth/Alpaca/image-191.jpg',
+    '/cloth/Alpaca/image-156.jpg',
+    '/cloth/Alpaca/image-178.jpg',
+    '/cloth/Alpaca/image-155.jpg',
   ]
   const accessorieImages = [
-    './cloth/Alpaca/image-153.jpg',
-    './cloth/Alpaca/image-125.jpg',
-    './cloth/Alpaca/image-154.jpg',
-    './cloth/Alpaca/image-140.jpg',
+    '/cloth/Alpaca/image-153.jpg',
+    '/cloth/Alpaca/image-125.jpg',
+    '/cloth/Alpaca/image-154.jpg',
+    '/cloth/Alpaca/image-140.jpg',
   ]
 ---
 
@@ -58,6 +58,7 @@ const socksImages = [
     title='COMFORTABLE SOCKS'
     description='Step strong with our customizable socks! Style and comfort in every step!'
     images={socksImages}
+    side="left"
     />
   </div>
 
@@ -66,6 +67,7 @@ const socksImages = [
     title='SPORT SOCKS'
     description='Step strong with our customizable socks! Style and comfort in every step!'
     images={sportSocksImages}
+    side="right"
     />
   </div>
 
@@ -74,6 +76,7 @@ const socksImages = [
     title='HOME & BED SOCKS'
     description='Step strong with our customizable socks! Style and comfort in every step!'
     images={bedImages}
+    side="left"
     />
   </div>
   <div class="gal-item order-4 md:ml-96 md:mr-0">
@@ -81,6 +84,7 @@ const socksImages = [
     title='LEATHER GLOVES'
     description='Elegance in every movement. Discover our premium leather gloves for a touch of style on any occasion.'
     images={glovesImages}
+    side="right"
     />
   </div>
 
@@ -89,6 +93,7 @@ const socksImages = [
       title='HATS & BEANIES'
       description='Step strong with our customizable socks! Style and comfort in every step!'
       images={hatsImages}
+      side="left"
       />
   </div>
   <div class="gal-item order-6 md:ml-96 md:mr-0">
@@ -96,6 +101,7 @@ const socksImages = [
       title='ACCESSORIES'
       description='Wrap yourself in warmth and style with our curated collection of hats and scarves. Embrace the season with flair!.'
       images={accessorieImages}
+      side="right"
     />
   </div>
 
@@ -104,48 +110,7 @@ const socksImages = [
       title='THERMAL UNDERWEAR'
       description='Warmth without sacrificing style. Discover our thermal underwear for total comfort in any weather.'
       images={thermalImages}
+      side="left"
     />
   </div>
 </section>
-
-<style>
-  .gal-item {
-    transform: translate(400%);
-    transition: transform 0.7s ease;
-  }
-
-  .gal-item:nth-of-type(even) {
-    transform: translateX(-400%);
-  }
-
-
-  .gal-item.show {
-    transform: translateX(0);
-  }
-</style>
-
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-
-    const gallery = document.querySelectorAll('.gal-item')
-    
-    window.addEventListener('scroll', checkItems)
-
-    function checkItems() {
-      const triggerButton = window.innerHeight / 5 * 4
-      
-      gallery.forEach((galItem) => {
-        const iTop = galItem.getBoundingClientRect().top
-        
-        if (iTop < triggerButton) {
-          galItem.classList.add('show')
-        }
-        else {
-          galItem.classList.remove('show')
-        }
-      })
-    }
-    
-    
-  })
-  </script>
