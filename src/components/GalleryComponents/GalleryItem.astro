@@ -8,20 +8,22 @@ interface Props {
 const { title, description, images, side } = Astro.props;
 ---
 
-<div id="template" class=" flex flex-col justify-between items-center md:flex-row">
-  
-  {
-    side === "right" ?
-    <div class="">
-      <h1>{ title }</h1>
-      <p>
-        { description }
-      </p>
+<div id="template" class="mx-auto max-w-screen-2xl px-4 md:px-8">
+  <div class="mb-4 flex items-center justify-between gap-8 mx-4 md:mx-64">
+    <div class="flex justify-center items-center gap-12">
+        <h2 class="text-2xl font-bold text-gray-800 lg:text-3xl ">{ title }</h2>
+        <p class="hidden max-w-screen-sm text-gray-500  md:block">
+            { description }
+        </p>
     </div>
-    :
-    <> </>
-  }
-  <div class="container px-5 py-2 lg:pt-24 mb-40">
+
+    <a href="#"
+        class="inline-block rounded-lg border bg-white dark:bg-orange-600 dark:border-none px-4 py-2 text-center text-sm font-semibold text-gray-500 dark:text-gray-200 outline-none ring-indigo-300 transition duration-100 hover:scale-105 focus-visible:ring active:bg-gray-200 md:px-8 md:py-3 md:text-base">
+        Obtain
+    </a>
+  </div>
+
+  <div class="container mx-auto px-5 py-2 lg:px-32 mb-16 md:mb-40">
     <div class="-m-1 flex flex-wrap md:-m-2">
       <div class="flex w-1/2 flex-wrap">
         <div class="w-1/2 p-1 md:p-2 overflow-hidden rounded-lg shadow-xl">
@@ -72,17 +74,6 @@ const { title, description, images, side } = Astro.props;
     </div>
   </div>
 
-{
-  side === "left" ?
-  <div>
-    <h1>{ title }</h1>
-    <p>
-      { description }
-    </p>
-  </div>
-  :
-  <> </>
-}
 
 </div>
 
