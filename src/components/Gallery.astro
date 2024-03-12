@@ -2,78 +2,92 @@
 import GalleryItem from "./GalleryComponents/GalleryItem.astro"
 
 const socksImages = [
-    '/cloth/Alpaca/image-015.jpg',
-    '/cloth/Alpaca/image-000.jpg',
-    '/cloth/Alpaca/image-031.jpg',
-    '/cloth/Alpaca/image-036.jpg',
+    '/cloth/socks/confort-socks/sock-13.png',
+    '/cloth/socks/confort-socks/sock-14.png',
+    '/cloth/socks/confort-socks/sock-15.png',
+    '/cloth/socks/confort-socks/sock-16.png',
+    '/cloth/socks/confort-socks/sock-17.png',
+    '/cloth/socks/confort-socks/sock-18.png',
   ]
   const sportSocksImages = [
-    '/cloth/Alpaca/image-020.jpg',
-    '/cloth/Alpaca/image-059.jpg',
-    '/cloth/Alpaca/image-054.jpg',
-    '/cloth/Alpaca/image-021.jpg',
+    '/cloth/socks/sport-socks/sock-7.png',
+    '/cloth/socks/sport-socks/sock-8.png',
+    '/cloth/socks/sport-socks/sock-9.png',
+    '/cloth/socks/sport-socks/sock-10.png',
+    '/cloth/socks/sport-socks/sock-11.png',
+    '/cloth/socks/sport-socks/sock-12.png',
   ]
   const bedImages = [
-    '/cloth/Alpaca/image-047.jpg',
-    '/cloth/Alpaca/image-063.jpg',
-    '/cloth/Alpaca/image-023.jpg',
-    '/cloth/Alpaca/image-043.jpg',
+    '/cloth/socks/sock-1.png',
+    '/cloth/socks/sock-3.png',
+    '/cloth/socks/sock-4.png',
+    '/cloth/socks/sock-5.png',
+    '/cloth/socks/sock-2.png',
+    '/cloth/socks/sock-6.png',
   ]
   const glovesImages = [
-    '/cloth/Alpaca/image-067.jpg',
-    '/cloth/Alpaca/image-077.jpg',
-    '/cloth/Alpaca/image-072.jpg',
-    '/cloth/Alpaca/image-087.jpg',
-  ]
-  const thermalImages = [
-    '/cloth/Alpaca/image-118.jpg',
-    '/cloth/Alpaca/image-119.jpg',
-    '/cloth/Alpaca/image-115.jpg',
-    '/cloth/Alpaca/image-106.png',
+    '/cloth/gloves/glove-1.png',
+    '/cloth/gloves/glove-2.png',
+    '/cloth/gloves/glove-3.png',
+    '/cloth/gloves/glove-4.png',
+    '/cloth/gloves/glove-5.png',
+    '/cloth/gloves/glove-6.png',
   ]
   const hatsImages = [
-    '/cloth/Alpaca/image-191.jpg',
-    '/cloth/Alpaca/image-156.jpg',
-    '/cloth/Alpaca/image-178.jpg',
-    '/cloth/Alpaca/image-155.jpg',
+    '/cloth/hats/hat-6.png',
+    '/cloth/hats/hat-5.png',
+    '/cloth/hats/hat-2.png',
+    '/cloth/hats/hat-3.png',
+    '/cloth/hats/hat-4.png',
+    '/cloth/hats/hat-1.png',
+  ]
+  const thermalImages = [
+    '/cloth/therm/therm-2.png',
+    '/cloth/therm/therm-3.png',
+    '/cloth/therm/therm-4.png',
+    '/cloth/therm/therm-1.png',
+    '/cloth/therm/therm-5.png',
+    '/cloth/therm/therm-6.png',
   ]
   const accessorieImages = [
-    '/cloth/Alpaca/image-153.jpg',
-    '/cloth/Alpaca/image-125.jpg',
-    '/cloth/Alpaca/image-154.jpg',
-    '/cloth/Alpaca/image-140.jpg',
+    '/cloth/accs/acc-1.png',
+    '/cloth/accs/acc-2.png',
+    '/cloth/accs/acc-3.png',
+    '/cloth/accs/acc-4.png',
+    '/cloth/accs/acc-5.png',
+    '/cloth/accs/acc-6.png',
   ]
 ---
 
 
 <section class="gallery flex flex-col">
-  <div class="gal-item show order-1 md:ml-0 md:mr-96">
+  <div class="gal-item show order-1 md:ml-0 md:mr-0">
     <GalleryItem 
     title='COMFORTABLE SOCKS'
-    description='Step strong with our customizable socks! Style and comfort in every step!'
+    description='Step strong with our customizable socks! Style and comfort in every step.'
     images={socksImages}
     side="left"
     />
   </div>
 
-  <div class="gal-item order-2 md:ml-96 md:mr-0">
+  <div class="gal-item order-2 md:ml-0 md:mr-0">
     <GalleryItem 
     title='SPORT SOCKS'
-    description='Step strong with our customizable socks! Style and comfort in every step!'
+    description='Push your limits with our customizable sports socks! Style and performance in every movement.'
     images={sportSocksImages}
     side="right"
     />
   </div>
 
-  <div class="gal-item order-3 md:ml-0 md:mr-96">
+  <div class="gal-item order-3 md:ml-0 md:mr-0">
     <GalleryItem 
     title='HOME & BED SOCKS'
-    description='Step strong with our customizable socks! Style and comfort in every step!'
+    description='Immerse yourself in comfort with our home and bed socks. Relax with style and softness at every moment.'
     images={bedImages}
     side="left"
     />
   </div>
-  <div class="gal-item order-4 md:ml-96 md:mr-0">
+  <div class="gal-item order-4 md:ml-0 md:mr-0">
     <GalleryItem 
     title='LEATHER GLOVES'
     description='Elegance in every movement. Discover our premium leather gloves for a touch of style on any occasion.'
@@ -82,24 +96,24 @@ const socksImages = [
     />
   </div>
 
-  <div class="gal-item order-5 md:ml-0 md:mr-96">
+  <div class="gal-item order-5 md:ml-0 md:mr-0">
     <GalleryItem 
       title='HATS & BEANIES'
-      description='Step strong with our customizable socks! Style and comfort in every step!'
+      description='Complete your look with style and warmth with our hats and caps. Give a touch of personality to your outfit.'
       images={hatsImages}
       side="left"
       />
   </div>
-  <div class="gal-item order-6 md:ml-96 md:mr-0">
+  <div class="gal-item order-6 md:ml-0 md:mr-0">
     <GalleryItem 
       title='ACCESSORIES'
-      description='Wrap yourself in warmth and style with our curated collection of hats and scarves. Embrace the season with flair!.'
+      description='Wrap yourself in warmth and style with our collection of curated accessories. Embrace the season with elegance!'
       images={accessorieImages}
       side="right"
     />
   </div>
 
-  <div class="gal-item order-7 md:ml-0 md:mr-96">
+  <div class="gal-item order-7 md:ml-0 md:mr-0">
     <GalleryItem 
       title='THERMAL UNDERWEAR'
       description='Warmth without sacrificing style. Discover our thermal underwear for total comfort in any weather.'

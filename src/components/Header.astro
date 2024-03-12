@@ -3,13 +3,13 @@ import HeaderButton from './HedaerComponents/HeaderButton.astro'
 ---
 
 
-<header class="relative bg-gradient-to-r from-gray-950 to-gray-800 h-screen text-white overflow-hidden mb-10">
+<header class="relative bg-gradient-to-r from-gray-950 to-gray-800 h-screen text-white overflow-hidden">
     <div class="absolute inset-0">
         <img id="banner-img" src="/banner/images/banner1.webp" id="banner-image" alt="Background Image" 
           class="object-cover object-center w-full h-full" 
           style={{ opacity: 1 }}
         />
-    <div class="absolute inset-0 bg-gray-900 opacity-65"></div>
+    <div class="absolute inset-0 bg-[#1b1b1b] opacity-65"></div>
     </div>
     <div class="relative z-8 flex flex-col justify-center items-center h-full text-center">
       <div class="lg:w-2/3 w-full animate-fade-in-down ">
@@ -48,7 +48,6 @@ import HeaderButton from './HedaerComponents/HeaderButton.astro'
       behavior: 'smooth'
     })
   })
-
   let currentIndex = 0;
   setInterval(() => {
     currentIndex = (currentIndex + 1) % images.length

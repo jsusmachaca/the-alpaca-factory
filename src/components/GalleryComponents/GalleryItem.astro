@@ -1,41 +1,128 @@
 ---
 interface Props {
-  title: string
-  description: string
-  images: string[]
-  side: string
+  title: string;
+  description: string;
+  images: string[];
+  side: string;
 }
-const { title, description, images, side} = Astro.props
+const { title, description, images, side } = Astro.props;
 ---
 
-<article class=" w-full h-full">
-  <div class="container mx-auto lg:px-32 lg:pt-24 border-b-2 mb-10 pb-14">
-    <div class="text-center pb-10">
-      <h1 class="font-bold text-5xl mb-4 text-left">{title}</h1>
-      <h1 class="text-3xl text-left text-gray-400">{description}</h1>
-    </div>
-    <div class="grid grid-cols-2 gap-4 sm:grid-cols-3 md:gap-6 xl:gap-8">     
-      <div
-        class="group relative flex h-48 items-end overflow-hidden rounded-lg bg-white shadow-lg md:h-80">
-        <img src={images[0]} loading="lazy" alt="Referential image" class="absolute inset-0 h-full w-full rounded-lg object-contain transition duration-200 scale-110 group-hover:scale-125" />
-      </div>
+<div id="template" class=" flex flex-col justify-between items-center md:flex-row">
   
-      <div
-        class="group relative flex h-48 items-end overflow-hidden rounded-lg bg-white shadow-lg md:col-span-2 md:h-80">
-        <img src={images[1]} loading="lazy" alt="Referential image" class="absolute inset-0 h-full w-full rounded-lg object-contain transition duration-200 scale-110 group-hover:scale-125" />
+  {
+    side === "right" ?
+    <div class="">
+      <h1>{ title }</h1>
+      <p>
+        { description }
+      </p>
+    </div>
+    :
+    <> </>
+  }
+  <div class="container px-5 py-2 lg:pt-24 mb-40">
+    <div class="-m-1 flex flex-wrap md:-m-2">
+      <div class="flex w-1/2 flex-wrap">
+        <div class="w-1/2 p-1 md:p-2 overflow-hidden rounded-lg shadow-xl">
+          <img
+            alt="gallery"
+            class="block h-full w-full rounded-lg object-cover object-center transition-transform hover:scale-110"
+            src={images[0]}
+          />
+        </div>
+        <div class="w-1/2 p-1 md:p-2 overflow-hidden rounded-lg shadow-xl">
+          <img
+            alt="gallery"
+            class="block h-full w-full rounded-lg object-cover object-center transition-transform hover:scale-110"
+            src={images[1]}
+          />
+        </div>
+        <div class="w-full p-1 md:p-2 overflow-hidden rounded-lg shadow-xl">
+          <img
+            alt="gallery"
+            class="block h-full w-full rounded-lg object-cover object-center transition-transform hover:scale-110"
+            src={images[2]}
+          />
+        </div>
       </div>
+      <div class="flex w-1/2 flex-wrap">
+        <div class="w-full p-1 md:p-2 overflow-hidden rounded-lg shadow-xl">
+          <img
+            alt="gallery"
+            class="block h-full w-full rounded-lg object-cover object-center transition-transform hover:scale-110"
+            src={images[3]}
+          />
+        </div>
+        <div class="w-1/2 p-1 md:p-2  overflow-hidden rounded-lg shadow-xl">
+          <img
+            alt="gallery"
+            class="block h-full w-full rounded-lg object-cover object-center transition-transform hover:scale-110"
+            src={images[4]}
+          />
+        </div>
+        <div class="w-1/2 p-1 md:p-2 overflow-hidden rounded-lg shadow-xl">
+          <img
+            alt="gallery"
+            class="block h-full w-full rounded-lg object-cover object-center transition-transform hover:scale-110"
+            src={images[5]}
+          />
+        </div>
+      </div>
+    </div>
+  </div>
 
+{
+  side === "left" ?
+  <div>
+    <h1>{ title }</h1>
+    <p>
+      { description }
+    </p>
+  </div>
+  :
+  <> </>
+}
+
+</div>
+
+<style>
+
+</style>
+
+<!--
+  
+  <article class=" w-full h-full">
+    <div class="container mx-auto lg:px-32 lg:pt-24 border-b-[2px] border-b-zinc-200 mb-10 pb-14">
+      <div class="text-center pb-10">
+        <h1 class="font-bold text-5xl mb-4 text-left">{title}</h1>
+        <h1 class="text-3xl text-left text-gray-400">{description}</h1>
+      </div>
+      <div class="grid grid-cols-2 gap-4 sm:grid-cols-3 md:gap-6 xl:gap-8">     
+        <div
+        class="group relative flex h-48 items-end overflow-hidden rounded-lg bg-white shadow-lg md:h-80">
+        <img src={images[0]} loading="lazy" alt="Referential image" class="absolute inset-0 h-full w-full rounded-lg object-contain transition duration-200 scale-110 group-hover:scale-125 z-20 shadow-2xl" />
+        <img src={images[0]} loading="lazy" alt="Referential image" class="absolute inset-0 h-full w-full rounded-lg object-cover object-center transition duration-200 scale-110 group-hover:scale-125 blur-lg" />
+      </div>
+      
       <div
-        class="group relative flex h-48 items-end overflow-hidden rounded-lg bg-white shadow-lg md:col-span-2 md:h-80">
-        <img src={images[2]} loading="lazy" alt="Referential image" class="absolute inset-0 h-full w-full rounded-lg object-contain transition duration-200 scale-110 group-hover:scale-125" />        
+      class="group relative flex h-48 items-end overflow-hidden rounded-lg bg-white shadow-lg md:col-span-2 md:h-80">
+      <img src={images[1]} loading="lazy" alt="Referential image" class="absolute inset-0 h-full w-full rounded-lg object-contain transition duration-200 scale-110 group-hover:scale-125 z-20 shadow-2xl" />
+      <img src={images[1]} loading="lazy" alt="Referential image" class="absolute inset-0 h-full w-full rounded-lg object-cover object-center transition duration-200 scale-110 group-hover:scale-125 blur-lg" />
+    </div>
+
+    <div
+    class="group relative flex h-48 items-end overflow-hidden rounded-lg bg-white shadow-lg md:col-span-2 md:h-80">
+        <img src={images[2]} loading="lazy" alt="Referential image" class="absolute inset-0 h-full w-full rounded-lg object-contain transition duration-200 scale-110 group-hover:scale-125 z-20 shadow-2xl" />        
+        <img src={images[2]} loading="lazy" alt="Referential image" class="absolute inset-0 h-full w-full rounded-lg object-cover object-center transition duration-200 scale-110 group-hover:scale-125 blur-lg" />
         {
           side === 'right' ?
-            <a class="relative ml-4 mb-3 inline-block md:ml-5">
-              <span class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-orage-600 dark:bg-orange-600/50 shadow-2xl hover:scale-110 hover:bg-orange-600">
-                <svg class="w-5 h-5 text-white dark:text-white rtl:rotate-180" aria-hidden="true" fill="none" viewBox="0 0 6 10">
-                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4"/>
-                </svg>
-              </span>
+          <a class="relative ml-4 mb-3 inline-block md:ml-5  z-50">
+            <span class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-orage-600 dark:bg-orange-600/50 shadow-2xl hover:scale-110 hover:bg-orange-600">
+              <svg class="w-5 h-5 text-white dark:text-white rtl:rotate-180" aria-hidden="true" fill="none" viewBox="0 0 6 10">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4"/>
+              </svg>
+            </span>
           </a>
           :
           <></>
@@ -43,21 +130,23 @@ const { title, description, images, side} = Astro.props
       </div>
 
       <div
-        class="group relative flex h-48 items-end overflow-hidden rounded-lg bg-white shadow-lg md:h-80">
-        <img src={images[3]} loading="lazy" alt="Referential image" class="absolute inset-0 h-full w-full object-contain transition duration-200 scale-110 group-hover:scale-125" />
-        {
-          side === 'left' ?
-            <a class="relative ml-28 mb-3 inline-block md:ml-80">
-              <span class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-orage-600 dark:bg-orange-600/50 shadow-2xl hover:scale-110 hover:bg-orange-600">
-                <svg class="w-5 h-5 text-white dark:text-white rtl:rotate-180" aria-hidden="true" fill="none" viewBox="0 0 6 10">
-                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
-                </svg>
-              </span>
-            </a>
-          :
-          <></>
-        }
-      </div>
+      class="group relative flex h-48 items-end overflow-hidden rounded-lg bg-white shadow-lg md:h-80">
+      <img src={images[3]} loading="lazy" alt="Referential image" class="absolute inset-0 h-full w-full object-contain transition duration-200 scale-110 group-hover:scale-125 z-20 shadow-2xl" />
+      <img src={images[3]} loading="lazy" alt="Referential image" class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 scale-110 group-hover:scale-125 blur-lg" />
+      {
+        side === 'left' ?
+        <a class="relative ml-28 mb-3 inline-block md:ml-80 lg:ml-80  z-50">
+          <span class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-orage-600 dark:bg-orange-600/50 shadow-2xl hover:scale-110 hover:bg-orange-600">
+            <svg class="w-5 h-5 text-white dark:text-white rtl:rotate-180" aria-hidden="true" fill="none" viewBox="0 0 6 10">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
+            </svg>
+          </span>
+        </a>
+        :
+        <></>
+      }
     </div>
   </div>
+</div>
 </article>
+-->
