@@ -16,4 +16,4 @@ ENV ADDRESSEE=email
 
 EXPOSE 80
 
-CMD ["node", "dist/entry.js"]
+CMD ["node", "dist/server/entry.js"]
