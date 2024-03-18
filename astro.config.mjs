@@ -8,5 +8,5 @@ export default defineConfig({
     host: "0.0.0.0"
   },
   integrations: [tailwind()],
-  output: "hybrid",
+  output: "server",
 });
