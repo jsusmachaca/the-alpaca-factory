@@ -1,6 +1,8 @@
 FROM node:lts-iron as build
 WORKDIR /the-alpaca-factory
 COPY . .
+ENV API_KEY=apikey
+ENV ADDRESSEE=email
 RUN npm install
 RUN npm run build
 
@@ -11,8 +13,7 @@ COPY --from=build /the-alpaca-factory/dist ./dist
 COPY --from=build /the-alpaca-factory/node_modules ./node_modules
 
 ENV PORT=80
-ENV API_KEY=apikey
-ENV ADDRESSEE=email
+ENV HOST=0.0.0.0
 
 EXPOSE 80
 
