@@ -13,10 +13,6 @@ RUN npm run build
 
 FROM node:lts-iron
 
-#ENVIRONMENTS FOR PROD 
-ENV API_KEY=apikey
-ENV ADDRESSEE=email
-
 ENV PORT=80
 ENV HOST=0.0.0.0
 

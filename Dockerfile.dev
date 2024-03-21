@@ -1,0 +1,14 @@
+FROM node:lts-iron as build
+
+WORKDIR /the-alpaca-factory
+COPY . .
+
+# ENVIRONMENTS FOR BUILD PROCESS
+ENV API_KEY=apikey
+ENV ADDRESSEE=email
+
+RUN npm install
+
+EXPOSE 4321
+
+CMD ["npm", "run", "dev"]
