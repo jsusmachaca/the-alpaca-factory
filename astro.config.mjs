@@ -6,11 +6,12 @@ import node from "@astrojs/node";
 // https://astro.build/config
 export default defineConfig({
   server: {
-    host: "0.0.0.0"
+    host: "0.0.0.0",
+    https: true,
   },
   integrations: [tailwind()],
   output: "server",
   adapter: node({
     mode: "standalone"
-  })
+  }),
 });
