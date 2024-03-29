@@ -13,13 +13,13 @@ RUN npm run build
 
 FROM node:lts-iron
 
-ENV PORT=80
+ENV PORT=3000
 ENV HOST=0.0.0.0
 
 WORKDIR /the-alpaca-factory
 COPY --from=build /the-alpaca-factory/dist ./dist
 COPY --from=build /the-alpaca-factory/node_modules ./node_modules
 
-EXPOSE 80
+EXPOSE 3000
 
 CMD ["node", "dist/server/entry.mjs"]

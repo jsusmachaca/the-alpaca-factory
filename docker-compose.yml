@@ -1,11 +1,18 @@
 version: "3.9"
 services:
-  web:
+  app:
     build: .
-    ports:
-      - "80:80"
     environment:
       - API_KEY=apikey
       - ADDRESSEE=email
-      - SERVER_KEY_PATH=key
-      - SERVER_CERT_PATH=cert
+    volumes:
+      - $HOME/.certs:/the-alpaca-factory/.certs
+
+  nginx:
+    image: nginx:1.24.0
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro
+    depends_on:
+      - app
