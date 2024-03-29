@@ -7,4 +7,5 @@ services:
     environment:
       - API_KEY=apikey
       - ADDRESSEE=email
-  
+      - SERVER_KEY_PATH=key
+      - SERVER_CERT_PATH=cert
