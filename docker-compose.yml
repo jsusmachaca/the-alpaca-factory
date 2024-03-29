@@ -20,4 +20,4 @@ services:
       - app
 
 volumes:
-  certs :
+  certs:
